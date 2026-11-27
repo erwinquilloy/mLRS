@@ -16,7 +16,8 @@ over mLRS. ArduPilot over the bridge (MAVLink) works as before.
   so they pair as before.
 - Nomad: flashed and confirmed (2026-11-27) with a Matek receiver on official v1.5.00 and INAV:
   telemetry, INAV parameter editing and mission download.
-- MR24-30: built from the same branch (2026-11-27), not yet flashed.
+- MR24-30: flashed and confirmed (2026-11-27) with a receiver on official v1.5.00: binds, telemetry.
+  The first MR24-30 file here (built with gcc 13.2) did not bind; this one is built with gcc 12.3.
 
 ## Flashing
 
@@ -27,5 +28,6 @@ over mLRS. ArduPilot over the bridge (MAVLink) works as before.
 - **MR24-30** (STM32G431): in the mLRS Web Flasher, Local file, flash method **USB (DFU)**, or
   STM32CubeProgrammer over DFU.
 
-Built with PlatformIO (espressif32 6.13.0) for the Nomad and arm-none-eabi gcc 13.2.1
-(`tools/run_make_firmwares.py -t tx-matek-mr24-30-g431kb`) for the MR24-30.
+Built with PlatformIO (espressif32 6.13.0) for the Nomad and Arm GNU Toolchain 12.3.rel1
+(`tools/run_make_firmwares.py -t tx-matek-mr24-30-g431kb`) for the MR24-30. Don't use gcc 13: that build
+started but would not bind.
